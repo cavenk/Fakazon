@@ -98,9 +98,12 @@
 	<!-- End Navbar  -->
 
 
+	<!-- Container Sidebar & product displayal  -->
+	<div class="container-fluid">
+	
 	<!-- Sidebar -->
 	<div class="d-flex flex-column flex-shrink-0 p-3 bg-light"
-		style="width: 280px;">
+		style="width: 260px;">
 		<a href="/"
 			class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-secondary text-decoration-none">
 			<svg class="bi me-2" width="40" height="32">
@@ -155,11 +158,34 @@
 				<li><a class="dropdown-item" href="#">Me déconnecter</a></li>
 			</ul>
 		</div>
+		<!-- End Sidebar -->
+		</div>
+		
+		<!-- Product displayal -->
+		<div class="row row-cols-1 row-cols-md-4 mb-3 text-center">
+		<div class="col">
+        <div class="card mb-3 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Titre Produit</h4>
+          </div>
+          <div class="card-body">
+          <img class="card-img-top" src="logo.png" alt="Image Produit">
+            <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Détails produits</li>
+              <li>Détails produits</li>
+              <li>Détails produits</li>
+            </ul>
+            <button type="button" class="w-75 btn btn-lg btn-light">J'achète</button>
+          </div>
+        </div>
+      </div>
+      </div>
+		<!-- End Product displayal -->
+		
+	<!-- End Container Sidebar & product displayal  -->
 	</div>
-
-	<!-- End Sidebar -->
-
-
+	
 	<!-- Footer -->
 	<div class="container text-secondary ">
 		<footer class="py-5 ">
