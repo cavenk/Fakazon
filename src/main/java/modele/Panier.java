@@ -1,12 +1,12 @@
 package modele;
 
 public class Panier {
-	
+
 	private int idPanier;
 	private int idUtilisateur;
 	private int idProduit;
-	
-	
+
+
 	public int getIdPanier() {
 		return idPanier;
 	}
@@ -30,6 +30,6 @@ public class Panier {
 		return "Panier [idPanier=" + idPanier + ", idUtilisateur=" + idUtilisateur + ", idProduit=" + idProduit + "]";
 	}
 
-	
-	
+
+
 }

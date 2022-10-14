@@ -1,12 +1,12 @@
 package modele;
 
 public class Categorie {
-	
+
 	private int idCategorie;
-	private String nom; 
+	private String nom;
 	private String description;
-	
-	
+
+
 	public int getIdCategorie() {
 		return idCategorie;
 	}
@@ -25,14 +25,14 @@ public class Categorie {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
+
+
 	@Override
 	public String toString() {
 		return "Categorie [idCategorie=" + idCategorie + ", nom=" + nom + ", description=" + description + "]";
-	} 
-	
-	
-	
-	
+	}
+
+
+
+
 }

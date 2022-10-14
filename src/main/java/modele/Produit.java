@@ -1,17 +1,15 @@
 package modele;
 
-import java.sql.Date;
-
 public class Produit {
-	
+
 	private int idProduit;
 	private String nom;
 	private double prix;
 	private String image;
 	private int quantite;
 	private int idCategorie;
-	
-	
+
+
 	public int getIdProduit() {
 		return idProduit;
 	}
@@ -48,12 +46,13 @@ public class Produit {
 	public void setIdCategorie(int idCategorie) {
 		this.idCategorie = idCategorie;
 	}
+
 	@Override
 	public String toString() {
 		return "Produit [idProduit=" + idProduit + ", nom=" + nom + ", prix=" + prix + ", image=" + image
 				+ ", quantite=" + quantite + ", idCategorie=" + idCategorie + "]";
 	}
-	
-	
-	
+
+
+
 }//Produit

@@ -1,14 +1,14 @@
 package modele;
 
 public class AdresseLivraison {
-	
+
 	private int idAdresseLivraison;
 	private String adresse;
 	private String ville;
 	private String province;
 	private String pays;
 	private String codePostal;
-	
+
 	public int getIdAdresseLivraison() {
 		return idAdresseLivraison;
 	}
@@ -52,7 +52,7 @@ public class AdresseLivraison {
 		return "AdresseLivraison [idAdresseLivraison=" + idAdresseLivraison + ", adresse=" + adresse + ", ville="
 				+ ville + ", province=" + province + ", pays=" + pays + ", codePostal=" + codePostal + "]";
 	}
-	
+
 
 
 

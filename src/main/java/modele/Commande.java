@@ -3,14 +3,14 @@ package modele;
 import java.sql.Date;
 
 public class Commande {
-	
+
 	private int nCommande;
 	private Date date;
 	private double prixTotal;
 	private int idProduit;
 	private int idUtilisateur;
 	private int idPanier;
-	
+
 	public int getnCommande() {
 		return nCommande;
 	}
@@ -47,14 +47,14 @@ public class Commande {
 	public void setIdPanier(int idPanier) {
 		this.idPanier = idPanier;
 	}
-	
-	
+
+
 	@Override
 	public String toString() {
 		return "Commande [nCommande=" + nCommande + ", date=" + date + ", prixTotal=" + prixTotal + ", idProduit="
 				+ idProduit + ", idUtilisateur=" + idUtilisateur + ", idPanier=" + idPanier + "]";
 	}
-	
-	
+
+
 
 }

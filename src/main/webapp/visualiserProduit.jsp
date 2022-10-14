@@ -1,12 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+// RechercheProduit pd = new RechercheProduit
+
+%>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
-<title>Rechercher un produit</title>
+<title>Visualiser un produit</title>
 
 <%@include file="includes/head.jsp"%>
+
+<!-- STYLES CSS -->
+<style type="text/css">
+.table tbody td {
+	vertical-align: middle;
+}
+
+.btn-incre, .btn-decre {
+	box-shadow: none;
+	font-size: 25px;
+}
+</style>
+
 
 </head>
 
@@ -182,7 +200,7 @@
 	<!-- End Container Sidebar & product displayal  -->
 
 
-	<%@include file="includes/footer.jsp"%>
+	<%@include file="/includes/footer.jsp"%>
 
 </body>
 </html>

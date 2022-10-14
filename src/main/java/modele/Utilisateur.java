@@ -5,10 +5,10 @@ import java.sql.Date;
 public class Utilisateur {
 
 	private int idUtilisateur;
-	private String prenom; 
-	private String nom; 
+	private String prenom;
+	private String nom;
 	private Date dateNaissance;
-	private String telephone;	
+	private String telephone;
 	private String courriel;
 	private String motPass;
 	private String adresse;
@@ -18,8 +18,8 @@ public class Utilisateur {
 	private String codePostal;
 	private int idRole;
 	private int idAdresseLivraison;
-	
-	
+
+
 	public int getIdUtilisateur() {
 		return idUtilisateur;
 	}
@@ -104,7 +104,7 @@ public class Utilisateur {
 	public void setIdAdresseLivraison(int idAdresseLivraison) {
 		this.idAdresseLivraison = idAdresseLivraison;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", prenom=" + prenom + ", nom=" + nom
@@ -113,5 +113,5 @@ public class Utilisateur {
 				+ ", pays=" + pays + ", codePostal=" + codePostal + ", idRole=" + idRole + ", idAdresseLivraison="
 				+ idAdresseLivraison + "]";
 	}
-	
+
 }//Utilisateur
