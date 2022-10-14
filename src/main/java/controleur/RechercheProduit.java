@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.sql.DataSource;
@@ -16,13 +17,15 @@ import javax.sql.DataSource;
 import modele.Produit;
 import modele.Utilisateur;
 
-@WebServlet("/rechercherProduit" )
+@WebServlet("/test" )
 public class RechercheProduit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
-//	private Utilisateur utilisateur;
+
 	
-	@Resource(name="jdbc/fakazon_db")
+	//TEST CONNECTION À LA BD
+	//Table Produit
+	
+	@Resource(name="jdbc/TPJava")
 	private DataSource dataSource;
 		
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,24 +40,24 @@ public class RechercheProduit extends HttpServlet {
 		
 		try {
 			connection = dataSource.getConnection();
-			String sql = "select * from produit";
+			String sql = "select * from Produit";
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery(sql);
 			
 			while (resultSet.next()) {
 				int idProduit = resultSet.getInt("idProduit");
-				String nomCategorie = resultSet.getString("nomCategorie");
-				String nomProduit = resultSet.getString("nomProduit");
+				String nom = resultSet.getString("nom");
 				double prix = resultSet.getDouble("prix");
-				String photoURL = resultSet.getString("photoURL");
-				int quantiteDisponible = resultSet.getInt("quantiteDisponible");
+				String image = resultSet.getString("image");
+				int quantite = resultSet.getInt("quantite");
+				int idCategorie = resultSet.getInt("idCategorie");
 				
 				out.println(idProduit);
-				out.println(nomCategorie);
-				out.println(nomProduit);
+				out.println(nom);
 				out.println(prix);
-				out.println(photoURL);
-				out.println(quantiteDisponible);
+				out.println(image);
+				out.println(quantite);
+				out.println(idCategorie);
 			}
 		}
 		catch (Exception e) {

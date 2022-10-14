@@ -5,11 +5,12 @@ import java.sql.Date;
 public class Produit {
 	
 	private int idProduit;
-	private String nomCategorie;
-	private String nomProduit;
+	private String nom;
 	private double prix;
-	private String photoURL;
-	private int quantiteDisponible;
+	private String image;
+	private int quantite;
+	private int idCategorie;
+	
 	
 	public int getIdProduit() {
 		return idProduit;
@@ -17,17 +18,11 @@ public class Produit {
 	public void setIdProduit(int idProduit) {
 		this.idProduit = idProduit;
 	}
-	public String getNomCategorie() {
-		return nomCategorie;
+	public String getNom() {
+		return nom;
 	}
-	public void setNomCategorie(String nomCategorie) {
-		this.nomCategorie = nomCategorie;
-	}
-	public String getNomProduit() {
-		return nomProduit;
-	}
-	public void setNomProduit(String nomProduit) {
-		this.nomProduit = nomProduit;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 	public double getPrix() {
 		return prix;
@@ -35,17 +30,30 @@ public class Produit {
 	public void setPrix(double prix) {
 		this.prix = prix;
 	}
-	public String getPhotoURL() {
-		return photoURL;
+	public String getImage() {
+		return image;
 	}
-	public void setPhotoURL(String photoURL) {
-		this.photoURL = photoURL;
+	public void setImage(String image) {
+		this.image = image;
 	}
-	public int getQuantiteDisponible() {
-		return quantiteDisponible;
+	public int getQuantite() {
+		return quantite;
 	}
-	public void setQuantiteDisponible(int quantiteDisponible) {
-		this.quantiteDisponible = quantiteDisponible;
-	} 
-
+	public void setQuantite(int quantite) {
+		this.quantite = quantite;
+	}
+	public int getIdCategorie() {
+		return idCategorie;
+	}
+	public void setIdCategorie(int idCategorie) {
+		this.idCategorie = idCategorie;
+	}
+	@Override
+	public String toString() {
+		return "Produit [idProduit=" + idProduit + ", nom=" + nom + ", prix=" + prix + ", image=" + image
+				+ ", quantite=" + quantite + ", idCategorie=" + idCategorie + "]";
+	}
+	
+	
+	
 }//Produit
