@@ -72,7 +72,7 @@
 			</div>
 			<!-- End Sidebar 3/12 col  -->
 
-			<!-- PUT YOUR CONTENT IF ITS NOT PRODUCTS 9/12 col  -->
+			<!--  9/12 col  -->
 			<div class="col-lg-9 ">
 
 				<div class="container-fluid pt-5 ">

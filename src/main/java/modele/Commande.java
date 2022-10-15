@@ -11,6 +11,19 @@ public class Commande {
 	private int idUtilisateur;
 	private int idPanier;
 
+	public Commande(int nCommande, Date date, double prixTotal, int idProduit, int idUtilisateur, int idPanier) {
+		
+		this.nCommande = nCommande;
+		this.date = date;
+		this.prixTotal = prixTotal;
+		this.idProduit = idProduit;
+		this.idUtilisateur = idUtilisateur;
+		this.idPanier = idPanier;
+	}//Constructeur Commande
+	
+	
+	//Getters & Setters
+	
 	public int getnCommande() {
 		return nCommande;
 	}

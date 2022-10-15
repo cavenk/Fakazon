@@ -9,6 +9,20 @@ public class AdresseLivraison {
 	private String pays;
 	private String codePostal;
 
+	public AdresseLivraison(int idAdresseLivraison, String adresse, String ville, String province, String pays,
+			String codePostal) {
+		this.idAdresseLivraison = idAdresseLivraison;
+		this.adresse = adresse;
+		this.ville = ville;
+		this.province = province;
+		this.pays = pays;
+		this.codePostal = codePostal;
+		
+	}//Constructeur AdresseLivraison
+	
+	
+	//Getters & Setters
+	
 	public int getIdAdresseLivraison() {
 		return idAdresseLivraison;
 	}

@@ -7,6 +7,16 @@ public class Categorie {
 	private String description;
 
 
+	public Categorie(int idCategorie, String nom, String description) {
+		
+		this.idCategorie = idCategorie;
+		this.nom = nom;
+		this.description = description;
+	}//Constructeur Categorie
+	
+	
+	//Getters & Setters
+	
 	public int getIdCategorie() {
 		return idCategorie;
 	}

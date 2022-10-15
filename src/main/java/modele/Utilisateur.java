@@ -19,7 +19,31 @@ public class Utilisateur {
 	private int idRole;
 	private int idAdresseLivraison;
 
-
+	
+	public Utilisateur(int idUtilisateur, String prenom, String nom, Date dateNaissance, String telephone,
+			String courriel, String motPass, String adresse, String ville, String province, String pays,
+			String codePostal, int idRole, int idAdresseLivraison) {
+		
+		this.idUtilisateur = idUtilisateur;
+		this.prenom = prenom;
+		this.nom = nom;
+		this.dateNaissance = dateNaissance;
+		this.telephone = telephone;
+		this.courriel = courriel;
+		this.motPass = motPass;
+		this.adresse = adresse;
+		this.ville = ville;
+		this.province = province;
+		this.pays = pays;
+		this.codePostal = codePostal;
+		this.idRole = idRole;
+		this.idAdresseLivraison = idAdresseLivraison;
+		
+	}//Constructeur Utilisateur
+	
+	
+	//Getters & Setters
+	
 	public int getIdUtilisateur() {
 		return idUtilisateur;
 	}

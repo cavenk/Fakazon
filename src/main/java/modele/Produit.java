@@ -9,7 +9,19 @@ public class Produit {
 	private int quantite;
 	private int idCategorie;
 
-
+	public Produit(int idProduit, String nom, double prix, String image, int quantite, int idCategorie) {
+		this.idProduit = idProduit;
+		this.nom = nom;
+		this.prix = prix;
+		this.image = image;
+		this.quantite = quantite;
+		this.idCategorie = idCategorie;
+		
+	}//Constructeur Produit
+	
+	
+	//Getters & Setters
+	
 	public int getIdProduit() {
 		return idProduit;
 	}

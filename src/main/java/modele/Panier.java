@@ -5,8 +5,17 @@ public class Panier {
 	private int idPanier;
 	private int idUtilisateur;
 	private int idProduit;
-
-
+	
+	public Panier(int idPanier, int idUtilisateur, int idProduit) {
+		this.idPanier = idPanier;
+		this.idUtilisateur = idUtilisateur;
+		this.idProduit = idProduit;
+		
+	}//Constructeur Panier
+	
+	
+	//Getters & Setters
+	
 	public int getIdPanier() {
 		return idPanier;
 	}
