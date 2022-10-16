@@ -16,12 +16,12 @@ public class Produit {
 		this.image = image;
 		this.quantite = quantite;
 		this.idCategorie = idCategorie;
-		
+
 	}//Constructeur Produit
-	
-	
+
+
 	//Getters & Setters
-	
+
 	public int getIdProduit() {
 		return idProduit;
 	}

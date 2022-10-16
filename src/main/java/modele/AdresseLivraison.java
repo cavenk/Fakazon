@@ -17,12 +17,12 @@ public class AdresseLivraison {
 		this.province = province;
 		this.pays = pays;
 		this.codePostal = codePostal;
-		
+
 	}//Constructeur AdresseLivraison
-	
-	
+
+
 	//Getters & Setters
-	
+
 	public int getIdAdresseLivraison() {
 		return idAdresseLivraison;
 	}

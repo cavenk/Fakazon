@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <title>Rechercher un produit</title>
@@ -79,102 +83,45 @@
 
 					<!-- TODO MAKE A LOOP TO PRINT DEPENDING EVERY PRODUCT IN DB **** -->
 					<!-- TODO IN LOOP BUT A COND IF MORE THAN 3 PRODUCTS CREATE A NEW ROW **** -->
+					
 					<div class="row px-xl-5 pb-3 d-flex justify-content-center">
-
+					
+					<!-- forEach -->	
+					<c:forEach var="produits" items="${PRODUITS_LIST}" varStatus="p" end="14" >
+					
 						<!-- 1st Product showing -->
-						<div
-							class="col-lg-3 col-md-5 pb-1 card mb-4 mx-4 rounded-3 shadow-sm">
-							<div class="card-header py-2 text-center">
-								<h5 class="my-0 fw-normal">Titre Produit</h5>
-							</div>
-							<div class="card-body text-center">
-								<img class="card-img-top" src="Images/logo.png"
-									alt="Image Produit" height="100vw">
-								<h4 class="card-title pricing-card-title">
-									$0<small class="text-muted fw-light">/mo</small>
-								</h4>
-								<ul class="list-unstyled my-2">
-									<li>Détails produits</li>
-									<li>Détails produits</li>
-								</ul>
-								<button type="button" class="w-60 btn btn-md btn-light">J'achète</button>
-							</div>
+					<div
+						class="col-lg-3 col-md-5 pb-1 card mb-4 mx-4 rounded-3 shadow-sm">
+						<div class="card-header py-2 text-center">
+							<h5 class="my-0 fw-normal">${produits.nom}</h5>
 						</div>
-						<!-- End 1st Product showing -->
-
-						<!-- 2sd Product showing -->
-						<div
-							class="col-lg-3 col-md-5 pb-1 card mb-4 mx-4 rounded-3 shadow-sm">
-							<div class="card-header py-2 text-center">
-								<h5 class="my-0 fw-normal">Titre Produit</h5>
-							</div>
-							<div class="card-body text-center">
-								<img class="card-img-top" src="Images/logo.png"
-									alt="Image Produit" height="100vw">
-								<h4 class="card-title pricing-card-title">
-									$0<small class="text-muted fw-light">/mo</small>
-								</h4>
-								<ul class="list-unstyled my-2">
-									<li>Détails produits</li>
-									<li>Détails produits</li>
-								</ul>
-								<button type="button" class="w-60 btn btn-md btn-light">J'achète</button>
-							</div>
+						<div class="card-body text-center">
+							<img class="card-img-top" src="${produits.image}"
+								alt="Image Produit" style="height: 6rem;width: auto;">
+							<h4 class="card-title pricing-card-title">${produits.prix}</h4>
+							<ul class="list-unstyled my-2">
+								<li>En stock: ${produits.quantite}</li>
+							</ul>
+							<button type="button" class="w-60 btn btn-md btn-light">J'achète</button>
 						</div>
-						<!-- End 2sd Product showing -->
-
-						<!-- 3rd Product showing -->
-						<div
-							class="col-lg-3 col-md-5 pb-1 card mb-4 mx-4 rounded-3 shadow-sm">
-							<div class="card-header py-2 text-center">
-								<h5 class="my-0 fw-normal">Titre Produit</h5>
-							</div>
-							<div class="card-body text-center">
-								<img class="card-img-top" src="Images/logo.png"
-									alt="Image Produit" height="100vw">
-								<h4 class="card-title pricing-card-title">
-									$0<small class="text-muted fw-light">/mo</small>
-								</h4>
-								<ul class="list-unstyled my-2">
-									<li>Détails produits</li>
-									<li>Détails produits</li>
-								</ul>
-								<button type="button" class="w-60 btn btn-md btn-light">J'achète</button>
-							</div>
-						</div>
-						<!-- End 3rd Product showing -->
-
 					</div>
+					
+					<c:if test = "${p.count % 3==0}" > 
+					
+						</div>
+						
+						<div class="row px-xl-5 pb-3 d-flex justify-content-center">
+						
+						</c:if>
+
+					<!-- End 1st Product showing -->
+						</c:forEach>
+						<!-- End forEach -->
+
+					
 					<!-- End 1st ROW -->
-
-					<!-- TODO IN LOOP BUT A COND IF MORE THAN 3 PRODUCTS CREATE A NEW ROW **** -->
-					<div class="row px-xl-5 pb-3 d-flex justify-content-center">
-
-						<!-- 4th Product showing in 2sd row -->
-						<div
-							class="col-lg-3 col-md-5 pb-1 card mb-4 mx-4 rounded-3 shadow-sm">
-							<div class="card-header py-2 text-center">
-								<h5 class="my-0 fw-normal">Titre Produit</h5>
-							</div>
-							<div class="card-body text-center">
-								<img class="card-img-top" src="Images/logo.png"
-									alt="Image Produit" height="100vw">
-								<h4 class="card-title pricing-card-title">
-									$0<small class="text-muted fw-light">/mo</small>
-								</h4>
-								<ul class="list-unstyled my-2">
-									<li>Détails produits</li>
-									<li>Détails produits</li>
-								</ul>
-								<button type="button" class="w-60 btn btn-md btn-light">J'achète</button>
-							</div>
-						</div>
-						<!-- End 4th Product showing in 2sd row -->
-
-					</div>
-					<!-- End 2sd ROW -->
-
 				</div>
+				
 			</div>
 			<!-- Product showing 9 col  -->
 		</div>

@@ -23,15 +23,15 @@
 		<th>idCategorie</th>
 	</tr>
 
-	<c:forEach var="produit" items="${PRODUITS_LIST}">
+	<c:forEach var="produits" items="${PRODUITS_LIST}">
 
 		<tr>
-			<td>${produit.idProduit}</td>
-			<td>${produit.nom}</td>
-			<td>${produit.prix}</td>
-			<td>${produit.image}</td>
-			<td>${produit.quantite}</td>
-			<td>${produit.idCategorie}</td>
+			<td>${produits.idProduit}</td>
+			<td>${produits.nom}</td>
+			<td>${produits.prix}</td>
+			<td>${produits.image}</td>
+			<td>${produits.quantite}</td>
+			<td>${produits.idCategorie}</td>
 		</tr>
 
 	</c:forEach>

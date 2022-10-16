@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 
-public class AcheterProduit extends HttpServlet {
+public class AcheterProduitControleur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
