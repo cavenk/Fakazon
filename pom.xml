@@ -47,6 +47,7 @@
   </dependencies>
 
   <build>
+  <finalName>fakazon</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -59,7 +60,12 @@
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.2.3</version>
+        <!-- For caven only. To be removed -->
+        <!-- <configuration>
+          <outputDirectory>C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps</outputDirectory>
+        </configuration> -->
+        <!--  -->
       </plugin>
     </plugins>
-  </build>
+  </build> 
 </project>

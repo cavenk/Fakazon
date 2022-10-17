@@ -8,6 +8,14 @@ public class AdresseLivraison {
 	private String province;
 	private String pays;
 	private String codePostal;
+
+	public AdresseLivraison(String adresse, String ville, String province, String pays, String codePostal){
+		this.adresse = adresse;
+		this.ville = ville;
+		this.province = province;
+		this.pays = pays;
+		this.codePostal = codePostal;
+	}
 	
 	public int getIdAdresseLivraison() {
 		return idAdresseLivraison;
