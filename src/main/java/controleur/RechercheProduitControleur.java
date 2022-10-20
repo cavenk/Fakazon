@@ -1,6 +1,7 @@
 package controleur;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -24,6 +25,7 @@ public class RechercheProduitControleur extends HttpServlet {
 	@Resource(name="jdbc/TPJava")
 	private DataSource dataSource;
 
+
 	@Override
 	public void init() throws ServletException {
 		super.init();
@@ -36,51 +38,77 @@ public class RechercheProduitControleur extends HttpServlet {
 		}
 	}//init()
 
+	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		try {
 
-			String action = request.getParameter("action");
+			String paramCategory = request.getParameter("category");
+			String paramSearchInput = request.getParameter("searchInput");
 
-			if (action == null) {
-				action = "LISTE";
+			if(paramCategory != null){
+
+				List<Produit> produits = ProduitsDbServices.getProduitByCategory(Integer.parseInt(paramCategory));
+				request.setAttribute("PRODUITS_LIST", produits);
+
+			} else if (paramSearchInput != null){
+
+	        	ArrayList<Produit> resuRechListe = listeProduitsRechercher(request);
+				request.setAttribute("PRODUITS_LIST", resuRechListe);
+
+	        } else {
+
+				this.listeProduits(request,response);
 			}
 
-			switch (action) {
-
-			case "LISTE":
-				listeProduits(request, response);
-				break;
-
-			default:
-				listeProduits(request, response);
-			}
-
-			/*//Session
-			HttpSession session = request.getSession();
-			if(produits != null) {
-				session.setAttribute("sessionProduits", produits);
-			}
-			response.getWriter().println("Session = " + (String) session.getAttribute("sessionProduits"));
-			//session.invalidate();*/
+			 RequestDispatcher dispatcher = request.getRequestDispatcher("/rechercheProduit.jsp");
+	         dispatcher.forward(request, response);
 
 		}
 		catch (Exception e) {
-			throw new ServletException(e);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/error.jsp");
+			dispatcher.forward(request, response);
+
+			e.printStackTrace();
 		}
 
 	}//doPost()
 
-	private void listeProduits(HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
+	private void listeProduits(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-			List<Produit> produits = ProduitsDbServices.getProduits();
+		List<Produit> produits = ProduitsDbServices.getProduits();
 
-			request.setAttribute("PRODUITS_LIST", produits);
+		request.setAttribute("PRODUITS_LIST", produits);
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/rechercheProduit.jsp");
-			dispatcher.forward(request, response);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/rechercheProduit.jsp");
+		dispatcher.forward(request, response);
+	}
+
+	private ArrayList<Produit> listeProduitsRechercher(HttpServletRequest request) throws Exception {
+
+		String nomProductInput = request.getParameter("searchInput");
+
+		List<Produit> produits = ProduitsDbServices.getProduits();
+
+		ArrayList<Produit> resultSearchList = new ArrayList<>();
+
+
+		for (Produit produit : produits) {
+
+			String nomProduit = produit.getNom().toLowerCase();
+
+			String nomProductInputLowerC = nomProductInput.toLowerCase();
+
+			if (nomProduit.contains(nomProductInputLowerC)){
+
+				resultSearchList.add(produit);
+			}
+
 		}
+
+		return resultSearchList;
+
+	}//listeProduitRechercher()
 
 }//RechercheProduit()

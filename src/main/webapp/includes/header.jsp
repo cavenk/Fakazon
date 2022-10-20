@@ -28,16 +28,16 @@
 						<li><a class="dropdown-item" href="#">Voir mon profil</a> <a
 							class="dropdown-item" href="#">Mes commandes</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="#">Me déconnecter</a></li>
+						<li><a class="dropdown-item" href="#">Me d�connecter</a></li>
 					</ul></li>
 
 				<li class="nav-item active"><a class="nav-link" href="#">Contactez-Nous
 				</a></li>
 
 			</ul>
-			<form class="d-flex" role="search" action="">
+			<form class="d-flex" role="search" method="GET" action="rechercheProduitControleur" >
 				<input class="form-control me-2" type="search"
-					placeholder="Rechercher un produit" aria-label="Search">
+					placeholder="Nom de produit" aria-label="Search" name="searchInput">
 				<button class="btn btn-light" type="submit">Rechercher</button>
 			</form>
 			<!-- End Navbar menu  -->
