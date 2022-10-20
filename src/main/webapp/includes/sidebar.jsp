@@ -6,7 +6,7 @@
         class="d-flex align-items-center justify-content-between ht text-bg-ligsecondary text-decoration-none w-100"
         data-toggle="collapse"
         style="height: 65px; margin-top: -1px; padding: 0 30px;">
-        <h6 class="m-0">Nos categories</h6> <i></i>
+        <h6 class="m-0">Nos categories</h6>
     </div>
 
     <!-- Listes des catégos  -->

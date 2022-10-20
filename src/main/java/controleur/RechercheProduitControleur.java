@@ -46,24 +46,22 @@ public class RechercheProduitControleur extends HttpServlet {
 
 			String paramCategory = request.getParameter("category");
 			String paramSearchInput = request.getParameter("searchInput");
+			List<Produit> produits = null;
 
-			if(paramCategory != null){
+			if(paramCategory != null)
+				produits = ProduitsDbServices.getProduitByCategory(Integer.parseInt(paramCategory));
 
-				List<Produit> produits = ProduitsDbServices.getProduitByCategory(Integer.parseInt(paramCategory));
-				request.setAttribute("PRODUITS_LIST", produits);
+			else if (paramSearchInput != null)
+	        	produits = listeProduitsRechercher(request);
 
-			} else if (paramSearchInput != null){
+	        else
+				produits = ProduitsDbServices.getProduits();
 
-	        	ArrayList<Produit> resuRechListe = listeProduitsRechercher(request);
-				request.setAttribute("PRODUITS_LIST", resuRechListe);
 
-	        } else {
+			request.setAttribute("PRODUITS_LIST", produits);
 
-				this.listeProduits(request,response);
-			}
-
-			 RequestDispatcher dispatcher = request.getRequestDispatcher("/rechercheProduit.jsp");
-	         dispatcher.forward(request, response);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/rechercheProduit.jsp");
+			dispatcher.forward(request, response);
 
 		}
 		catch (Exception e) {
@@ -73,25 +71,17 @@ public class RechercheProduitControleur extends HttpServlet {
 			e.printStackTrace();
 		}
 
-	}//doPost()
+	}//doGet()
 
-	private void listeProduits(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		List<Produit> produits = ProduitsDbServices.getProduits();
 
-		request.setAttribute("PRODUITS_LIST", produits);
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/rechercheProduit.jsp");
-		dispatcher.forward(request, response);
-	}
-
-	private ArrayList<Produit> listeProduitsRechercher(HttpServletRequest request) throws Exception {
+	private List<Produit> listeProduitsRechercher(HttpServletRequest request) throws Exception {
 
 		String nomProductInput = request.getParameter("searchInput");
 
 		List<Produit> produits = ProduitsDbServices.getProduits();
 
-		ArrayList<Produit> resultSearchList = new ArrayList<>();
+		List<Produit> resultSearchList = new ArrayList<>();
 
 
 		for (Produit produit : produits) {
@@ -110,5 +100,6 @@ public class RechercheProduitControleur extends HttpServlet {
 		return resultSearchList;
 
 	}//listeProduitRechercher()
+
 
 }//RechercheProduit()

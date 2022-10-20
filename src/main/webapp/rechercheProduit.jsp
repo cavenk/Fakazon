@@ -10,13 +10,12 @@
 <html>
 
 <head>
-<meta charset="UTF-8">
-<title>Rechercher un produit</title>
+	<meta charset="UTF-8">
+	<title>Rechercher un produit</title>
 
-<%@include file="includes/head.jsp"%>
+	<%@include file="includes/head.jsp"%>
 
 </head>
-
 <body>
 
 	<!-- Header -->
@@ -24,7 +23,7 @@
 
 	<!-- Main -->
 	<div class="container-fluid mb-5 mt-1">
-        <div class="row border-top px-xl-6">
+        <div class="row border-top px-xl-6"> 
        	    <!-- Sidebar  -->
             <%@include file="includes/sidebar.jsp"%>
 
@@ -59,12 +58,11 @@
 								</div>
 							</c:forEach>
 						</c:if>
-
 					</div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>  
 
     <!-- Footer -->
     <%@include file="includes/footer.jsp"%>
@@ -83,8 +81,6 @@
     </div>
 
 	<!-- Script Javascript -->
-    <script src="./javascript/index.js"></script>
-
-	
+    <script src="./javascript/index.js"></script> 
 </body>
 </html>
