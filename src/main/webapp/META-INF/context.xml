@@ -6,4 +6,9 @@
 		driverClassName="com.mysql.cj.jdbc.Driver"
 		url="jdbc:mysql://localhost:3306/TPJava" />
 
+	<Realm className="org.apache.catalina.realm.DataSourceRealm" debug="99"
+		dataSourceName="jdbc/TPJava" localDataSource="true"
+		userTable="utilisateur" userNameCol="courriel" userCredCol="motPass"
+		userRoleTable="utilisateur" roleNameCol="idRole"/>
+
 </Context>

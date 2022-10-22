@@ -1,6 +1,7 @@
 package service;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,6 +19,37 @@ public class UtilisateurDb {
         this.dataSource  = dataSource;
     }
 	
+    public Utilisateur getUserByCourriel(String courriel) throws SQLException{
+        Connection connection = null;
+
+        try{
+            PreparedStatement statement;
+            ResultSet result;
+            Utilisateur user;
+
+            String query = "SELECT * FROM Utilisateur WHERE courriel=? LIMIT 1";
+
+            connection = dataSource.getConnection();
+            
+            statement = connection.prepareStatement(query);
+            statement.setString(1, courriel);
+            
+            result = statement.executeQuery();
+            result.next();
+            user = convertToUtilisateur(result);
+
+            connection.close();
+            
+            return user;
+
+        } catch(SQLException exception){
+            if(connection != null)
+                connection.close();
+
+            throw exception;
+        }
+
+    }
 
     public int createUser(Utilisateur user, AdresseLivraison adresseLivraison) throws SQLException{
         Connection connection = null;
@@ -68,7 +100,27 @@ public class UtilisateurDb {
             throw exception;
 
         }
-           
+
+    }
+
+    private Utilisateur convertToUtilisateur(ResultSet result) throws SQLException{
+        int idUtilisateur = result.getInt("idUtilisateur");
+        String prenom = result.getString("prenom");
+        String nom = result.getString("nom");
+        Date dateDeNaissance = result.getDate("dateNaissance");
+        String telephone = result.getString("telephone");
+        String courriel = result.getString("courriel");
+        String motDePasse = result.getString("motPass");
+        String adresse = result.getString("adresse");
+        String ville = result.getString("ville");
+        String province = result.getString("province");
+        String pays = result.getString("pays");
+        String codePostal = result.getString("codePostal");
+        int idRole = result.getInt("idRole");
+        int idAdresseLivraison = result.getInt("idAdresseLivraison");
+
+        return new Utilisateur(idUtilisateur, prenom, nom, dateDeNaissance, telephone, courriel, motDePasse, adresse, ville, province, pays, codePostal, idRole, idAdresseLivraison);
+       
     }
     
 }
