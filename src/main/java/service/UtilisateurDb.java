@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import modele.AdresseLivraison;
+import modele.Adresse;
 import modele.Utilisateur;
 
 public class UtilisateurDb {
@@ -51,19 +51,13 @@ public class UtilisateurDb {
 
     }
 
-    public int createUser(Utilisateur user, AdresseLivraison adresseLivraison) throws SQLException{
-        Connection connection = null;
-
-        try{
-            connection = dataSource.getConnection();
-            connection.setAutoCommit(false);
-        
+    /* Function to be used with a transaction
+     * Creates a statement and returns the id of the insert row
+     */
+    public static int createStatement(Connection connection, Utilisateur user, int idAdresse, int idAdresseLivraison) throws SQLException{
             String query = 
-                "INSERT INTO Utilisateur (prenom, nom, dateNaissance, telephone, courriel, motPass, adresse, ville, province, pays, codePostal, idRole, idAdresseLivraison)" +
-                "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
-            // Insert adresse livraison and get the ID
-            int adresseLivraisonID = AdresseDb.create(connection, adresseLivraison);
+                "INSERT INTO Utilisateur (prenom, nom, dateNaissance, telephone, courriel, motPass, idRole, idAdresse, idAdresseLivraison)" +
+                "VALUES(?,?,?,?,?,?,?,?,?)";
 
             // Insert Utilisateur and get the ID
             PreparedStatement statement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -74,13 +68,9 @@ public class UtilisateurDb {
             statement.setString(4, user.getTelephone());
             statement.setString(5, user.getCourriel());
             statement.setString(6, user.getMotPass());
-            statement.setString(7, user.getAdresse());
-            statement.setString(8, user.getVille());
-            statement.setString(9, user.getProvince());
-            statement.setString(10, user.getPays());
-            statement.setString(11, user.getCodePostal());
-            statement.setInt(12, user.getIdRole());
-            statement.setInt(13, adresseLivraisonID);
+            statement.setInt(7, user.getIdRole());
+            statement.setInt(8, idAdresse);
+            statement.setInt(9, idAdresseLivraison);
             statement.executeUpdate();
 
             ResultSet result = statement.getGeneratedKeys();
@@ -88,19 +78,26 @@ public class UtilisateurDb {
 
             int utilisateurID = result.getInt(1);
             
-            connection.commit();
-            connection.close();
-
             return utilisateurID;
+    }
 
-        } catch (SQLException exception){
-            if(connection != null)
-                connection.close();
 
-            throw exception;
+    /* Function to be used with a transaction
+    * Creates a statement for update
+    */
+    public static void updateStatement(Connection connection, Utilisateur user) throws SQLException{
+        String query = "UPDATE utilisateur SET prenom=?, nom=?, dateNaissance=?, telephone=?, courriel=?, motPass=? WHERE idUtilisateur=?";
 
-        }
+        PreparedStatement statement = connection.prepareStatement(query);
 
+        statement.setString(1, user.getPrenom());
+        statement.setString(2, user.getNom());
+        statement.setDate(3, user.getDateNaissance());
+        statement.setString(4, user.getTelephone());
+        statement.setString(5, user.getCourriel());
+        statement.setString(6, user.getMotPass());
+        statement.setInt(7, user.getIdUtilisateur());
+        statement.executeUpdate();
     }
 
     private Utilisateur convertToUtilisateur(ResultSet result) throws SQLException{
@@ -111,15 +108,12 @@ public class UtilisateurDb {
         String telephone = result.getString("telephone");
         String courriel = result.getString("courriel");
         String motDePasse = result.getString("motPass");
-        String adresse = result.getString("adresse");
-        String ville = result.getString("ville");
-        String province = result.getString("province");
-        String pays = result.getString("pays");
-        String codePostal = result.getString("codePostal");
         int idRole = result.getInt("idRole");
-        int idAdresseLivraison = result.getInt("idAdresseLivraison");
+        Integer idAdresse = result.getInt("idAdresse");
+        Integer idAdresseLivraison = result.getInt("idAdresseLivraison");
+        
 
-        return new Utilisateur(idUtilisateur, prenom, nom, dateDeNaissance, telephone, courriel, motDePasse, adresse, ville, province, pays, codePostal, idRole, idAdresseLivraison);
+        return new Utilisateur(idUtilisateur, prenom, nom, dateDeNaissance, telephone, courriel, motDePasse, idRole, idAdresse, idAdresseLivraison);
        
     }
     

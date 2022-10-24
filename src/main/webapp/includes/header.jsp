@@ -23,8 +23,7 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> ${user.getPrenom()} ${user.getNom()} </a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">Modifier mon compte</a></li>
-							<li><a class="dropdown-item" href="#">Mes commandes</a></li>
+							<li><a class="dropdown-item" href="compteControleur">Modifier mon compte</a></li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item" href="connexionControleur?action=logout">Me déconnecter</a></li>
 						</ul>

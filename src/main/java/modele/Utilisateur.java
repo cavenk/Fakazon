@@ -4,25 +4,20 @@ import java.sql.Date;
 
 public class Utilisateur {
 
-	private int idUtilisateur;
+	private Integer idUtilisateur;
 	private String prenom;
 	private String nom;
 	private Date dateNaissance;
 	private String telephone;
 	private String courriel;
 	private String motPass;
-	private String adresse;
-	private String ville;
-	private String province;
-	private String pays;
-	private String codePostal;
-	private int idRole;
-	private int idAdresseLivraison;
+	private Integer idRole;
+	private Integer idAdresse;
+	private Integer idAdresseLivraison;
 
 
-	public Utilisateur(int idUtilisateur, String prenom, String nom, Date dateNaissance, String telephone,
-			String courriel, String motPass, String adresse, String ville, String province, String pays,
-			String codePostal, int idRole, int idAdresseLivraison) {
+	public Utilisateur(Integer idUtilisateur, String prenom, String nom, Date dateNaissance, String telephone,
+			String courriel, String motPass, Integer idRole, Integer idAdresse, Integer idAdresseLivraison) {
 
 		this.idUtilisateur = idUtilisateur;
 		this.prenom = prenom;
@@ -31,39 +26,23 @@ public class Utilisateur {
 		this.telephone = telephone;
 		this.courriel = courriel;
 		this.motPass = motPass;
-		this.adresse = adresse;
-		this.ville = ville;
-		this.province = province;
-		this.pays = pays;
-		this.codePostal = codePostal;
 		this.idRole = idRole;
+		this.idAdresse = idAdresse;
 		this.idAdresseLivraison = idAdresseLivraison;
 
 
 	}//Constructeur Utilisateur
 
 	public Utilisateur(String prenom, String nom, Date dateNaissance, String telephone,
-			String courriel, String motPass, String adresse, String ville, String province, String pays,
-			String codePostal, int idRole) {
+			String courriel, String motPass) {
 
-			this.prenom = prenom;
-			this.nom = nom;
-			this.dateNaissance = dateNaissance;
-			this.telephone = telephone;
-			this.courriel = courriel;
-			this.motPass = motPass;
-			this.adresse = adresse;
-			this.ville = ville;
-			this.province = province;
-			this.pays = pays;
-			this.codePostal = codePostal;
-			this.idRole = idRole;
+			this(null, prenom, nom, dateNaissance, telephone, courriel, motPass, 2, null, null);
 
 	}
 
 
 	//Getters & Setters
-	public int getIdUtilisateur() {
+	public Integer getIdUtilisateur() {
 		return idUtilisateur;
 	}
 	public void setIdUtilisateur(int idUtilisateur) {
@@ -105,43 +84,21 @@ public class Utilisateur {
 	public void setMotPass(String motPass) {
 		this.motPass = motPass;
 	}
-	public String getAdresse() {
-		return adresse;
-	}
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
-	}
-	public String getVille() {
-		return ville;
-	}
-	public void setVille(String ville) {
-		this.ville = ville;
-	}
-	public String getProvince() {
-		return province;
-	}
-	public void setProvince(String province) {
-		this.province = province;
-	}
-	public String getPays() {
-		return pays;
-	}
-	public void setPays(String pays) {
-		this.pays = pays;
-	}
-	public String getCodePostal() {
-		return codePostal;
-	}
-	public void setCodePostal(String codePostal) {
-		this.codePostal = codePostal;
-	}
-	public int getIdRole() {
+	
+	public Integer getIdRole() {
 		return idRole;
 	}
 	public void setIdRole(int idRole) {
 		this.idRole = idRole;
 	}
-	public int getIdAdresseLivraison() {
+
+	public Integer getIdAdresse(){
+		return idAdresse;
+	}
+	public void setIdAdresse(int idAdresse){
+		this.idAdresse = idAdresse;
+	}
+	public Integer getIdAdresseLivraison() {
 		return idAdresseLivraison;
 	}
 	public void setIdAdresseLivraison(int idAdresseLivraison) {
@@ -152,8 +109,7 @@ public class Utilisateur {
 	public String toString() {
 		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", prenom=" + prenom + ", nom=" + nom
 				+ ", dateNaissance=" + dateNaissance + ", telephone=" + telephone + ", courriel=" + courriel
-				+ ", motPass=" + motPass + ", adresse=" + adresse + ", ville=" + ville + ", province=" + province
-				+ ", pays=" + pays + ", codePostal=" + codePostal + ", idRole=" + idRole + ", idAdresseLivraison="
+				+ ", motPass=" + motPass + ", idRole=" + idRole + ", idAdresse=" + idAdresse + ", idAdresseLivraison="
 				+ idAdresseLivraison + "]";
 	}
 

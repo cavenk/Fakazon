@@ -4,9 +4,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<%@include file="includes/head.jsp"%>
+<title>Erreur</title>
 </head>
 <body>
-    error page
+    <!-- Header -->
+	<%@include file="includes/header.jsp"%>
+
+    <!-- Main -->
+	<div class="container-fluid mb-5 mt-1">
+        <div class="row">
+            <p class="text-center fs-1">Une erreur inconnue s'est produite</p>
+            <br>
+            <a class="text-center" href="rechercheProduitControleur">Retourner à la page d'acceuil</a>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,16 +1,16 @@
 package modele;
 
-public class AdresseLivraison {
+public class Adresse {
 
-	private int idAdresseLivraison;
+	private Integer idAdresse;
 	private String adresse;
 	private String ville;
 	private String province;
 	private String pays;
 	private String codePostal;
 
-	public AdresseLivraison(int idAdresseLivraison, String adresse, String ville, String province, String pays, String codePostal) {
-		this.idAdresseLivraison = idAdresseLivraison;
+	public Adresse(Integer idAdresse, String adresse, String ville, String province, String pays, String codePostal) {
+		this.idAdresse = idAdresse;
 		this.adresse = adresse;
 		this.ville = ville;
 		this.province = province;
@@ -19,21 +19,17 @@ public class AdresseLivraison {
 
 	}//Constructeur AdresseLivraison
 
-	public AdresseLivraison(String adresse, String ville, String province, String pays, String codePostal){
-		this.adresse = adresse;
-		this.ville = ville;
-		this.province = province;
-		this.pays = pays;
-		this.codePostal = codePostal;
+	public Adresse(String adresse, String ville, String province, String pays, String codePostal){
+		this(null, adresse, ville, province, pays, codePostal);
 	}
 
 
 	//Getters & Setters
-	public int getIdAdresseLivraison() {
-		return idAdresseLivraison;
+	public Integer getIdAdresse() {
+		return idAdresse;
 	}
-	public void setIdAdresseLivraison(int idAdresseLivraison) {
-		this.idAdresseLivraison = idAdresseLivraison;
+	public void setIdAdresse(int idAdresse) {
+		this.idAdresse = idAdresse;
 	}
 	public String getAdresse() {
 		return adresse;
@@ -69,7 +65,7 @@ public class AdresseLivraison {
 
 	@Override
 	public String toString() {
-		return "AdresseLivraison [idAdresseLivraison=" + idAdresseLivraison + ", adresse=" + adresse + ", ville="
+		return "AdresseLivraison [idAdresse=" + idAdresse + ", adresse=" + adresse + ", ville="
 				+ ville + ", province=" + province + ", pays=" + pays + ", codePostal=" + codePostal + "]";
 	}
 
