@@ -101,6 +101,52 @@ public class ProduitsDbServices {
 
 	}
 
+	
+	
+	
+	//public Produit getProduitParId(int idProduitParam) {
+	
+		/*
+		 * Produit produitParId = null;
+		 * 
+		 * Connection connection = null; PreparedStatement preparedStatement = null;
+		 * ResultSet resultSet = null; int idProd;
+		 * 
+		 * try { //idProd = (idProduit);
+		 * 
+		 * connection = dataSource.getConnection();
+		 * 
+		 * String sql = "Select * from Produit where idProduit=?";
+		 * 
+		 * preparedStatement = connection.prepareStatement(sql);
+		 * 
+		 * preparedStatement.setInt(1, idProduitParam);
+		 * 
+		 * resultSet = preparedStatement.executeQuery();
+		 * 
+		 * if (resultSet.next()) { int idProduit = resultSet.getInt("idProduit"); String
+		 * nom = resultSet.getString("nom"); double prix = resultSet.getDouble("prix");
+		 * String image = resultSet.getString("image"); int quantite =
+		 * resultSet.getInt("quantite"); int idCategorie =
+		 * resultSet.getInt("idCategorie");
+		 * 
+		 * produitParId = new Produit(idProduit,nom, prix, image, quantite,
+		 * idCategorie); } else { throw new
+		 * Exception("Le produit n'existe pas dans la BD  "); }
+		 * 
+		 * return produitParId; } finally { close(connection, preparedStatement,
+		 * resultSet); }
+		 */
+		
+		 
+		
+	//}//getProduitParId()
+	
+	
+	
+	
+	
+	
 	private void close(Connection connection, Statement statement, ResultSet resultSet) {
 
 		try {

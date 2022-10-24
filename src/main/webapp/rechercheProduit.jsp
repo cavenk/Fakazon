@@ -6,6 +6,7 @@
     String toastMessage = (String) request.getAttribute("toast");
 %>
 
+
 <!DOCTYPE html>
 <html>
 
@@ -20,6 +21,7 @@
 
 	<!-- Header -->
 	<%@include file="includes/header.jsp"%>
+	
 
 	<!-- Main -->
 	<div class="container-fluid mb-5 mt-1">
@@ -40,20 +42,24 @@
 						
 						<c:if test="${PRODUITS_LIST.size() > 0}" >
 							<!-- forEach -->
-							<c:forEach var="produits" items="${PRODUITS_LIST}" varStatus="p" end="14">
+							<c:forEach var="produit" items="${PRODUITS_LIST}" varStatus="p" end="14">
 							
 								<!-- 1st Product showing -->
 								<div class="col-lg-3 col-md-5 pb-1 card mb-4 mx-4 rounded-3 shadow-sm">
 									<div class="card-header py-2 text-center">
-										<h5 class="my-0 fw-normal">${produits.nom}</h5>
+										<h5 class="my-0 fw-normal">${produit.nom}</h5>
 									</div>
 									<div class="card-body text-center">
-										<img class="card-img-top" src="${produits.image}" alt="Image Produit" style="height: 6rem; width: auto;">
-										<h4 class="card-title pricing-card-title">${produits.prix}</h4>
+										<img class="card-img-top" src="${produit.image}" alt="Image Produit" style="height: 6rem; width: auto;">
+										<h4 class="card-title pricing-card-title">${produit.prix}</h4>
 										<ul class="list-unstyled my-2">
-											<li>En stock: ${produits.quantite}</li>
+											<li>En stock: ${produit.quantite}</li>
 										</ul>
-										<button type="button" class="w-60 btn btn-md btn-light">J'achète</button>
+										<c:url var="lienAjouterPanier" value="gererPanierControleur">
+											<c:param name="action" value="ajouterPanier" />
+											<c:param name="idProduit" value="${produit.idProduit}" />
+										</c:url>
+										<a href='<c:out value="${lienAjouterPanier}"/>' class="btn btn-md btn-light" role="button" > Ajouter à mon panier </a>
 									</div>
 								</div>
 							</c:forEach>

@@ -25,7 +25,6 @@ public class RechercheEtAfficheProduitControleur extends HttpServlet {
 	@Resource(name="jdbc/TPJava")
 	private DataSource dataSource;
 
-
 	@Override
 	public void init() throws ServletException {
 		super.init();

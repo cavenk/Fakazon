@@ -53,7 +53,7 @@
 			<!-- Fin Img aimer un produit -->
 
 			<!-- Img Panier -->
-			<a class="navbar-brand" href="cart.jsp"><img
+			<a class="navbar-brand" href="gererPanier.jsp"><img
 				alt="Image d'un petit panier" src="Images/cart.png" height="40"></a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -66,3 +66,4 @@
 	</div>
 </nav>
 <!-- End Navbar  -->
+

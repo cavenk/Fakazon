@@ -48,9 +48,8 @@
 					<h5>Adhérer à notre infolettre</h5>
 					<p>Restez à l'affut de toutes nouveautés</p>
 					<div class="d-flex w-100 gap-1">
-						<label for="newsletter1" class="visually-hidden">Email
-							address</label> <input id="newsletter1" type="text" class="form-control"
-							placeholder="Email address">
+						<label for="newsletter1" class="visually-hidden"></label> <input id="newsletter1" type="text" class="form-control"
+							placeholder="Adresse courriel">
 						<button class="btn btn-light" type="button">Envoyé</button>
 					</div>
 				</form>
