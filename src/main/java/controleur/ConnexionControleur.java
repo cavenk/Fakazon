@@ -56,10 +56,14 @@ public class ConnexionControleur extends HttpServlet {
             }
 
             // Faire login et forward a la page origin ou acceuil
-            login(req);
+            int idRole = login(req);
 
             if(origin.isBlank() == false)
                 resp.sendRedirect(origin);
+            else if(idRole == 1){
+                dispatcher = req.getRequestDispatcher("indexAdministrateur.jsp");
+                dispatcher.forward(req, resp);
+            }
             else{
                 req.setAttribute("toast", "Vous etes connecter");
                 dispatcher = req.getRequestDispatcher("rechercheProduitControleur");
@@ -101,7 +105,8 @@ public class ConnexionControleur extends HttpServlet {
         }
     }
 
-    private void login(HttpServletRequest req) throws ServletException, SQLException{
+
+    private int login(HttpServletRequest req) throws ServletException, SQLException{
         String courriel = req.getParameter("courriel");
         String motDePasse = req.getParameter("motDePasse");
 
@@ -111,6 +116,9 @@ public class ConnexionControleur extends HttpServlet {
          // Sauvegarder le profil de l'utilisateur dans la session
          Utilisateur user = utilisateurDb.getUserByCourriel(courriel);
          req.getSession().setAttribute("user", user);
+
+        //  Retourner le idRole
+        return user.getIdRole();
     }
 
     private boolean isUserLoggedIn(HttpServletRequest req){
