@@ -17,6 +17,7 @@ import jakarta.servlet.http.HttpSession;
 import modele.Adresse;
 import modele.Utilisateur;
 import service.AdresseDb;
+import service.EnvoieGmailServices;
 import service.TransactionDb;
 
 @WebServlet("/compteControleur" )
@@ -139,6 +140,11 @@ public class CompteControleur extends HttpServlet {
         // Save utilisateur to session context
         HttpSession session = req.getSession();
         session.setAttribute("user", newUser);
+
+        // Send email
+        String subject = "Fakazon - Création de compte";
+        String body = "Votre compte a été créer avec succès";
+        EnvoieGmailServices.envoieCourriel(newUser.getNom(), newUser.getPrenom(), newUser.getCourriel(), subject , body);
 
         // Redirect to home page
         req.setAttribute("toast", "Compte a été crée avec succès !");
