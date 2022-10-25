@@ -13,7 +13,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import modele.Categorie;
 import modele.Produit;
+import service.CategorieDBServices;
 import service.ProduitsDbServices;
 
 @WebServlet("/rechercheProduitControleur" )
@@ -21,6 +23,7 @@ public class RechercheEtAfficheProduitControleur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private ProduitsDbServices ProduitsDbServices;
+	private CategorieDBServices categorieDBServices;
 
 	@Resource(name="jdbc/TPJava")
 	private DataSource dataSource;
@@ -31,6 +34,7 @@ public class RechercheEtAfficheProduitControleur extends HttpServlet {
 
 		try {
 			ProduitsDbServices = new ProduitsDbServices(dataSource);
+			categorieDBServices = new CategorieDBServices(dataSource);
 		}
 		catch (Exception e) {
 			throw new ServletException(e);
@@ -50,6 +54,7 @@ public class RechercheEtAfficheProduitControleur extends HttpServlet {
 			String paramCategory = request.getParameter("category");
 			String paramSearchInput = request.getParameter("searchInput");
 			List<Produit> produits = null;
+			List<Categorie> categoryList = null;
 
 			if(paramCategory != null)
 				produits = ProduitsDbServices.getProduitByCategory(Integer.parseInt(paramCategory));
@@ -60,8 +65,10 @@ public class RechercheEtAfficheProduitControleur extends HttpServlet {
 	        else
 				produits = ProduitsDbServices.getProduits();
 
+			categoryList = categorieDBServices.getCategories();
 
 			request.setAttribute("PRODUITS_LIST", produits);
+			request.setAttribute("CATEGORY_LIST", categoryList);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/rechercheProduit.jsp");
 			dispatcher.forward(request, response);
